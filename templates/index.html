@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Thai Tokenizer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="static/main.css" />
+</head>
+<body>
+  <h1>Thai Text Tokens</h1>
+  <form id="thai" method="POST">
+    <label for="input">
+      <textarea cols=50 rows=5 name="input" maxlength=128 placeholder="Write something in Thai"></textarea>
+    </label>
+    <button type="submit">Send</button>
+    {% if tokenized != None %}
+      <div class="tokenized">
+        {{ tokenized }}
+      </div>
+    {% endif %}
+  </form>
+  <script src="static/main.js"></script>
+</body>
+</html>
