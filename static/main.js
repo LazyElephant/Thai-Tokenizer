@@ -16,7 +16,7 @@ async function handleSubmit(evt) {
   const textArea = evt.target['text']
   const body = JSON.stringify({ text: textArea.value })
 
-  const response = await fetch('http://localhost:5000/predict', {
+  const response = await fetch('/predict', {
     body,
     method: 'POST',
     headers: {
@@ -28,7 +28,7 @@ async function handleSubmit(evt) {
   if ('tokenized' in json) {
     displayResponse(json.tokenized)
   }
-  
+
   textArea.focus()
 }
 
