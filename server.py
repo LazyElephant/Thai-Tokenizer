@@ -24,9 +24,9 @@ def api_predict():
     data = request.get_json()
     if data and 'text' in data:
         tokenized = predict(data['text'])
-        response = make_response(jsonify({'tokenized': tokenized}, 200)
+        res = make_response(jsonify({'tokenized': tokenized}, 200))
     else:
-        response = make_response(jsonify({'message': 'Bad Request'}, 400)
+        res = make_response(jsonify({'message': 'Bad Request'}, 400))
     
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
