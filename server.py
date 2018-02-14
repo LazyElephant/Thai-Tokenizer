@@ -1,6 +1,6 @@
 from keras.models import load_model
 import numpy as np
-from flask import Flask, request, abort, render_template, jsonify
+from flask import Flask, request, abort, render_template, jsonify, make_response
 from utils import predictions_to_text, prepare_text
 
 app = Flask(__name__)
@@ -24,9 +24,12 @@ def api_predict():
     data = request.get_json()
     if data and 'text' in data:
         tokenized = predict(data['text'])
-        return jsonify({'tokenized': tokenized})
+        response = make_response(jsonify({'tokenized': tokenized}, 200)
     else:
-        return jsonify({'error': 400, 'message': 'Bad Request'})
+        response = make_response(jsonify({'message': 'Bad Request'}, 400)
+    
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
 
 @app.route("/", methods=["GET", "POST"])
 def index():
