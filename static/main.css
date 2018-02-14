@@ -15,6 +15,7 @@ body {
   display: grid;
   grid-template-rows: 1fr 50px 50px 50px 1fr;
   grid-template-columns: 1fr minmax(300px, 1fr) 1fr;
+  font-size: 1.5em;
 }
 
 .example-text {
@@ -101,6 +102,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
+
 .input .form-group, .input textarea {
   height: 85%;
 }

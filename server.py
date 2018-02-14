@@ -4,10 +4,10 @@ from flask import Flask, request, abort, render_template, jsonify
 from utils import predictions_to_text, prepare_text
 
 app = Flask(__name__)
-model = load_model('Im_a_model_you_know_what_I_mean.h5')
+model = load_model('data/Im_a_model_you_know_what_I_mean.h5')
 model._make_predict_function()
-char_to_int = np.load('char_to_int.npy').item()
-int_to_char = np.load('int_to_char.npy').item()
+char_to_int = np.load('data/char_to_int.npy').item()
+int_to_char = np.load('data/int_to_char.npy').item()
   
 def predict(original_text):
     global char_to_int
@@ -23,7 +23,6 @@ def predict(original_text):
 def api_predict():
     data = request.get_json()
     if data and 'text' in data:
-        request.headers['Access-Control-Allow-Origin'] = '*'
         tokenized = predict(data['text'])
         return jsonify({'tokenized': tokenized})
     else:
