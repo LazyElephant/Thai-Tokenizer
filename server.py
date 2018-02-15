@@ -22,7 +22,7 @@ def predict(original_text):
 @app.route("/predict", methods=["OPTIONS"])
 def allow_cors():
     res = make_response()
-    res.headers['Access-Control-Allow-Origin'] = 'https://codepen.io'
+    res.headers['Access-Control-Allow-Origin'] = 'https://s.codepen.io'
     res.headers['Access-Control-Allow-Headers'] = 'content-type'
     res.headers['Access-Control-Allow-Method'] = 'POST'
     return res
