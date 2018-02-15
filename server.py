@@ -31,7 +31,7 @@ def api_predict():
     # allow cors for use on codepen
     res.headers['Access-Control-Allow-Origin'] = '*'
     res.headers['Access-Control-Allow-Headers'] = 'content-type'
-    res.ehaders['Access-Control-Allow-Method'] = 'POST'
+    res.headers['Access-Control-Allow-Method'] = 'POST'
     return res
 
 @app.route("/", methods=["GET", "POST"])
