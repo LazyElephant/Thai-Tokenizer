@@ -28,8 +28,8 @@ def api_predict():
     else:
         res = make_response(jsonify({'error':400, 'message': 'Bad Request'}))
     
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    return response
+    res.headers['Access-Control-Allow-Origin'] = '*'
+    return res
 
 @app.route("/", methods=["GET", "POST"])
 def index():
