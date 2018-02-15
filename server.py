@@ -19,7 +19,7 @@ def predict(original_text):
     tokenized = predictions_to_text(split_text, predictions)
     return tokenized
             
-@app.route("/predict", methods=["POST"])
+@app.route("/predict", methods=["OPTIONS", "POST"])
 def api_predict():
     data = request.get_json()
     if data and 'text' in data:
