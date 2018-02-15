@@ -28,7 +28,10 @@ def api_predict():
     else:
         res = make_response(jsonify({'error':400, 'message': 'Bad Request'}))
     
+    # allow cors for use on codepen
     res.headers['Access-Control-Allow-Origin'] = '*'
+    res.headers['Access-Control-Allow-Headers'] = 'content-type'
+    res.ehaders['Access-Control-Allow-Method'] = 'POST'
     return res
 
 @app.route("/", methods=["GET", "POST"])
