@@ -14,8 +14,8 @@ def predict(original_text):
     split_text = original_text.split()
     prepared = prepare_text(split_text, char_to_int)
     predictions = model.predict(prepared)
-    predictions[predictions > 0.7] = 1
-    predictions[predictions <= 0.7] = 0
+    predictions[predictions > 0.3] = 1
+    predictions[predictions <= 0.3] = 0
     tokenized = predictions_to_text(split_text, predictions)
     return tokenized
 
@@ -42,6 +42,8 @@ def api_predict():
     res.headers['Access-Control-Allow-Method'] = 'POST'
     return res
 
+# handles post if javascript is disabled
+# otherwise, /predict is called using ajax
 @app.route("/", methods=["GET", "POST"])
 def index():
     tokenized = None
