@@ -18,8 +18,16 @@ def predict(original_text):
     predictions[predictions <= 0.7] = 0
     tokenized = predictions_to_text(split_text, predictions)
     return tokenized
-            
-@app.route("/predict", methods=["OPTIONS", "POST"])
+
+@app.route("/predict", methods=["OPTIONS"])
+def allow_cors():
+    res = make_response()
+    res.headers['Access-Control-Allow-Origin'] = 'https://codepen.io'
+    res.headers['Access-Control-Allow-Headers'] = 'content-type'
+    res.headers['Access-Control-Allow-Method'] = 'POST'
+    return res
+
+@app.route("/predict", methods=["POST"])
 def api_predict():
     data = request.get_json()
     if data and 'text' in data:
@@ -29,7 +37,7 @@ def api_predict():
         res = make_response(jsonify({'error':400, 'message': 'Bad Request'}))
     
     # allow cors for use on codepen
-    res.headers['Access-Control-Allow-Origin'] = '*'
+    res.headers['Access-Control-Allow-Origin'] = 'https://codepen.io'
     res.headers['Access-Control-Allow-Headers'] = 'content-type'
     res.headers['Access-Control-Allow-Method'] = 'POST'
     return res
