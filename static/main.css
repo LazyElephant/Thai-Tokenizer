@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'aw_siam__english_not_thaiRg';
+  src: url('fonts/aw_siam.woff2') format('woff2'),
+       url('fonts/aw_siam.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -12,13 +20,30 @@ body {
   min-height: 100vh;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(16%, #AA0000), color-stop(16%, white), color-stop(32%, white), color-stop(32%, #000075), color-stop(68%, #000075), color-stop(68%, white), color-stop(84%, white), color-stop(84%, #AA0000));
   background: linear-gradient(#AA0000 16%, white 16%, white 32%, #000075 32%, #000075 68%, white 68%, white 84%, #AA0000 84%);
+  
   display: grid;
   grid-template-rows: 1fr 50px 50px 50px 1fr;
   grid-template-columns: 1fr minmax(300px, 1fr) 1fr;
+  justify-content: center;
+  
   font-size: 1.5em;
 }
 
+@media only screen and (max-width: 840px) {
+  .example-text {
+    display: none;
+  }
+}
+
+.title {
+  font-family: 'aw_siam__english_not_thaiRg';
+  grid-area: 1/2;
+  align-self: center;
+  text-align: center;
+}
+
 .example-text {
+  white-space: nowrap;
   color: gold;
   text-shadow: 1px 1px black;
   font-size: 2em;
@@ -119,6 +144,7 @@ body {
   padding: 10px;
   background-color: white;
   grid-area: 5/2;
-  max-height: 100px;
+  max-height: 200px;
+  overflow-y: auto;
   box-shadow: 0px 0px 10px -2px black;
 }
