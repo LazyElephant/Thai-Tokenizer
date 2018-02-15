@@ -37,7 +37,7 @@ def api_predict():
         res = make_response(jsonify({'error':400, 'message': 'Bad Request'}))
     
     # allow cors for use on codepen
-    res.headers['Access-Control-Allow-Origin'] = 'https://codepen.io'
+    res.headers['Access-Control-Allow-Origin'] = 'https://s.codepen.io'
     res.headers['Access-Control-Allow-Headers'] = 'content-type'
     res.headers['Access-Control-Allow-Method'] = 'POST'
     return res
