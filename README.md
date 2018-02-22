@@ -1,6 +1,6 @@
 # Thai Tokenizer
 
-A Recurrent Neural Network which separates thai sentences into individual words. Built with Keras using Tensorflow as the back end and hosted on [Heroku](https://thai-tokenizer.herokuapp.com/) using Gunicorn/Flask.
+A Recurrent Neural Network which separates thai sentences into individual words. Built with Keras using Tensorflow as the back end and hosted on [Heroku](https://thai-tokenizer.herokuapp.com/) using Gunicorn/Flask.  The Jupyter Notebook where the model was developed can be found [here](https://github.com/LazyElephant/Machine-Learning-Notebooks/blob/master/Day%206%20-%20Model%20for%20Thai%20text%20tokenization.ipynb).
 
 ## Getting Started
 
