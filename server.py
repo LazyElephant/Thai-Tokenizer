@@ -10,7 +10,6 @@ char_to_int = np.load('data/char_to_int.npy').item()
 int_to_char = np.load('data/int_to_char.npy').item()
   
 def predict(original_text):
-    global char_to_int
     split_text = original_text.split()
     prepared = prepare_text(split_text, char_to_int)
     predictions = model.predict(prepared)
@@ -19,6 +18,8 @@ def predict(original_text):
     tokenized = predictions_to_text(split_text, predictions)
     return tokenized
 
+# codepen first sends and HTTP Options request to ensure
+# cors is enabled before sending a post request
 @app.route("/predict", methods=["OPTIONS"])
 def allow_cors():
     res = make_response()
