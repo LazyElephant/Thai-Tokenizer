@@ -38,4 +38,4 @@ $ export FLASK_APP=server.py && python -m flask run
 
 ## Authors
 
-* **Tim Schmidt** - *Initial work* - [LazyElephant](https://github.com/LazyElephant)
+* **Tim Schmidt** - *Initial work* - [LazyElephant](https://github.com/tms2018)
